@@ -19,7 +19,7 @@ module.exports = function (homebridge) {
 
     api = homebridge;
 
-    homebridge.registerAccessory("homebridge-http-lightbulb", "HTTP-LIGHTBULB", HTTP_LIGHTBULB);
+    homebridge.registerAccessory("homebridge-http-shutter", "HTTP-SHUTTER", HTTP_SHUTTER);
 };
 
 const BrightnessUnit = Object.freeze({
@@ -54,7 +54,7 @@ const ColorMode = Object.freeze({
     TEMPERATURE: "temperature",
 });
 
-function HTTP_LIGHTBULB(log, config) {
+function HTTP_SHUTTER(log, config) {
     this.log = log;
     this.name = config.name;
     this.debug = config.debug || false;
@@ -112,7 +112,7 @@ function HTTP_LIGHTBULB(log, config) {
         }
     }
 
-    const homebridgeService = new Service.Lightbulb(this.name);
+    const homebridgeService = new Service.WindowCovering(this.name);
     homebridgeService.getCharacteristic(Characteristic.On)
         .on("get", this.getPowerState.bind(this))
         .on("set", this.setPowerState.bind(this));
@@ -237,7 +237,7 @@ function HTTP_LIGHTBULB(log, config) {
     }
 }
 
-HTTP_LIGHTBULB.prototype = {
+HTTP_SHUTTER.prototype = {
 
     identify: function (callback) {
         this.log("Identify requested!");
@@ -251,9 +251,9 @@ HTTP_LIGHTBULB.prototype = {
         const informationService = new Service.AccessoryInformation();
 
         informationService
-            .setCharacteristic(Characteristic.Manufacturer, "Andreas Bauer")
-            .setCharacteristic(Characteristic.Model, "HTTP Lightbulb")
-            .setCharacteristic(Characteristic.SerialNumber, "LB01")
+            .setCharacteristic(Characteristic.Manufacturer, "GevaudanBeast")
+            .setCharacteristic(Characteristic.Model, "HTTP SHUTTER")
+            .setCharacteristic(Characteristic.SerialNumber, "IPX800")
             .setCharacteristic(Characteristic.FirmwareRevision, packageJSON.version);
 
         return [informationService, this.homebridgeService];
