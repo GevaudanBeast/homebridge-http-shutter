@@ -1,7 +1,7 @@
 {
-  "name": "homebridge-http-lightbulb",
+  "name": "homebridge-http-shutter",
   "version": "1.2.4",
-  "description": "Http lightbulb for Homebridge",
+  "description": "Http shutter for Homebridge",
   "license": "ISC",
   "keywords": [
     "homebridge-plugin"
@@ -11,10 +11,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com/Supereg/homebridge-http-lightbulb.git"
+    "url": "git@github.com/GevaudanBeast/homebridge-http-shutter.git"
   },
   "bugs": {
-    "url": "https://github.com/Supereg/homebridge-http-lightbulb/issues"
+    "url": "https://github.com/GevaudanBeast/homebridge-http-shutter/issues"
   },
   "engines": {
     "node": ">=10.17.0",
